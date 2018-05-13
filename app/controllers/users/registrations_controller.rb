@@ -36,7 +36,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def createProfile(resource)
-      
+    @profile = resource.build_profile
+    @profile.save
   end
 
   # GET /resource/edit

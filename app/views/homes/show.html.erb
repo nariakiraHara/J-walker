@@ -1,3 +1,28 @@
-<h1>こんにちは、<%= current_user.name %>さん</h1>
+<h1><%= current_user.name %></h1>
 
-<p>ユーザー用ページです。</p>
+<%= link_to 'go edit', homes_edit_path(current_user) %>
+
+<h2>mail address</h2>
+<p><%= current_user.email %></p>
+
+<% if current_user.comment.empty? %>
+  <p>not setting</p>
+<% else %>
+  <p><%= current_user.comment %></p>
+<% end %>
+
+<h2>birthday</h2>
+<% if @profile.birthday.nil? %>
+  <p>not setting</p>
+<% else %>
+  <p><%= @profile.birthday %></p>
+<% end %>
+
+<h2>Want to go</h2>
+<% if @profile.want.nil? %>
+  <p>not setting</p>
+<% else %>
+  <p><%= @profile.want %></p>
+<% end %>
+
+

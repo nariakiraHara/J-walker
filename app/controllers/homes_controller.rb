@@ -3,5 +3,18 @@ class HomesController < ApplicationController
   end
 
   def show
+    @user = User.find(current_user.id)
+    @profile = @user.profile
   end
+
+  def edit
+    binding.pry
+    @user = User.find(current_user.id)
+    @profile = @user.profile
+  end
+
+  def update
+
+  end
+
 end
