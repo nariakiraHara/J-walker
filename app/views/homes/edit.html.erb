@@ -2,13 +2,13 @@
 
 <p><%= current_user.email %></p>
 
-<%= form_for@user, :url => {:action => :update} do |f|  %>
-  <%= f.label :comment %>
+<%= form_for(@user, :url => {:controller => :homes, :action => :update}) do |f|  %>
+  <%= f.label :comment %><br/>
   <%= f.text_field :comment %>
   <%= f.fields_for :profile do |i| %>
-    <%= i.label :birthday %>
+    <%= i.label :birthday %><br/>
     <%= i.text_field :birthday %>
-    <%= i.label :want %>
+    <%= i.label :want %><br/>
     <%= i.text_field :want %>
   <% end %>
   <%= f.submit "Save",name:"commit" %>
