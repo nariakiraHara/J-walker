@@ -10,11 +10,16 @@ class HomesController < ApplicationController
   def edit
     binding.pry
     @user = User.find(current_user.id)
-    @user.profile.build
+    @profile = @user.profile
   end
 
   def update
 
   end
+
+  private
+    def user_params
+
+    end
 
 end
