@@ -1,6 +1,6 @@
 <h1><%= current_user.name %></h1>
 
-<%= link_to 'go edit', homes_edit_path(current_user) %>
+<%= link_to 'go edit', edit_home_path(@user) %>
 
 <h2>mail address</h2>
 <p><%= current_user.email %></p>
