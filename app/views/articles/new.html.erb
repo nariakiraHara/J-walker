@@ -1,0 +1,9 @@
+<h1>Articles#new</h1>
+
+<%= form_for(@article, :url => {:controller => :articles, :action => :create}) do |f|  %>
+  <%= f.label :head %>
+  <%= f.text_field :head %>
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+  <%= f.submit "Save", name: "commit" %>
+<% end %>
