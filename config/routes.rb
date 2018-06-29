@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'articles/new'
   devise_for :users
   root 'homes#index'
   resources :profiles, only: [:show, :edit, :update]

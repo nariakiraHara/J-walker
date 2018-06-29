@@ -2,7 +2,7 @@
 
 <p><%= @user.email %></p>
 
-<%= form_for(@user, :url => {:controller => :profiles, :action => :update}) do |f|  %>
+<%= form_for(@user) do |f|  %>
   <%= f.label :comment, "つぶやき" %>
   <%= f.text_field :comment %></br>
   <%= f.label :birthday %>

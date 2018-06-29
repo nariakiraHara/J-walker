@@ -22,8 +22,7 @@
 <% if @user.prefecture_id.nil? %>
   <p>not setting</p>
 <% else %>
-  <% pref = JpPrefecture::Prefecture.find @user.prefecture_id %>
-  <p><%=pref.name %></p>
+  <p><%= JpPrefecture::Prefecture.find(@user.prefecture_id).name %></p>
 <% end %>
 
 <h2>行ってみたいところ！</h2>

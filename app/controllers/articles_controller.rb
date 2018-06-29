@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Artiles.new(article_params)
+    @current_user.articles.build(article_params)
   end
 
   private
