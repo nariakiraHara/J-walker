@@ -4,7 +4,7 @@
   "dependencies": {
     "@rails/webpacker": "^3.5.3",
     "vue": "^2.5.16",
-    "vue-loader": "^15.0.0-rc.2",
+    "vue-loader": "^15.2.4",
     "vue-template-compiler": "^2.5.16"
   },
   "devDependencies": {
