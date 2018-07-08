@@ -5,26 +5,45 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application' %>
+    <%= javascript_pack_tag 'application' %>
   </head>
 
   <body>
    <header>
-        <nav>
-         <% if user_signed_in? %>
-           <strong><%= link_to current_user.name, profile_path(current_user) %></strong>
-           <%= link_to 'パスワード変更', edit_user_registration_path %>
-           <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-          <%= link_to '記事を書く', new_article_path %>
-         <% else %>
-          <%= link_to 'サインアップ', new_user_registration_path %>
-          <%= link_to 'ログイン', new_user_session_path %>
-         <% end %>
-        </nav>
-    </header>
+     <nav class="navbar navbar-default navbar-fixed-top bg-dark">
+       <div class="container">
+         <ul class="list-inline">
+           <% if user_signed_in? %>
+             <li class="list-inline">
+               <strong><%= link_to current_user.name, profile_path(current_user) %></strong>
+             </li>
+             <li class="list-inline">
+              <%= link_to 'パスワード変更', edit_user_registration_path %>
+             </li>
+             <li class="list-inline">
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+             </li>
+             <li class="list-inline">
+               <%= link_to '記事を書く', new_article_path %>
+             </li>
+           <% else %>
+             <li class="list-inline">
+               <%= link_to 'サインアップ', new_user_registration_path %>
+             </li>
+             <li class="list-inline">
+               <%= link_to 'ログイン', new_user_session_path %>
+             </li>
+           <% end %>
+         </ul>
+       </div>
+     </nav>
+   </header>
+   <div class="container">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+    <button class="btn btn-primary">登録</button>
+   </div>
   </body>
 </html>
