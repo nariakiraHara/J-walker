@@ -1,6 +1,6 @@
 <h1><%= current_user.name %></h1>
 
-<%= link_to 'go edit', edit_profile_path(@user) %>
+<%= link_to '編集', edit_profile_path(@user) %>
 
 <h2>mail address</h2>
 <p><%= current_user.email %></p>
@@ -26,8 +26,8 @@
 <% end %>
 
 <h2>行ってみたいところ！</h2>
-<% if @user.want.nil? %>
+<% if @user.dream_place.nil? %>
   <p>not setting</p>
 <% else %>
-  <p><%= @user.want %></p>
+  <p><%= @user.dream_place %></p>
 <% end %>

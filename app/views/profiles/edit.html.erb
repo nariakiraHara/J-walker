@@ -2,14 +2,14 @@
 
 <p><%= @user.email %></p>
 
-<%= form_for(@user) do |f|  %>
+<%= form_for(@user, :url => {:controller => :profiles, :action => :update}) do |f|  %>
   <%= f.label :comment, "つぶやき" %>
   <%= f.text_field :comment %></br>
   <%= f.label :birthday %>
   <%= f.text_field :birthday %></br>
   <%= f.label :prefecture_id, "出身地" %>
   <%= f.collection_select :prefecture_id, JpPrefecture::Prefecture.all, :code, :name %></br>
-  <%= f.label :want %>
-  <%= f.text_field :want %></br>
+  <%= f.label :dream_place %>
+  <%= f.text_field :dream_place %></br>
   <%= f.submit "Save",name:"commit" %>
 <% end %>

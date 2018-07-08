@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_28_150612) do
+ActiveRecord::Schema.define(version: 2018_07_08_032153) do
 
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "header"
+    t.string "title"
     t.text "content"
     t.integer "region_id"
     t.integer "prefecture_id"
