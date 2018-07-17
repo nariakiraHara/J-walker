@@ -7,32 +7,37 @@
 
     <%= stylesheet_pack_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+    <%= javascript_include_tag 'application'%>
   </head>
 
   <body>
-   <header>
-     <nav class="navbar navbar-default navbar-fixed-top bg-dark">
-       <div class="container">
-         <ul class="list-inline">
+    <header>
+     <nav class="navbar navbar-expand-lg navbar-light">
+       <%= link_to 'Home', root_path, class:"navbar-brand"%>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+       <div class="collapse navbar-collapse" id="navbarNav">
+         <ul class="navbar-nav">
            <% if user_signed_in? %>
-             <li class="list-inline">
-               <strong><%= link_to current_user.name, profile_path(current_user) %></strong>
+             <li class="nav-item active">
+               <strong><%= link_to current_user.name, profile_path(current_user), class:"nav-link" %></strong>
              </li>
-             <li class="list-inline">
-              <%= link_to 'パスワード変更', edit_user_registration_path %>
+             <li class="nav-item">
+              <%= link_to 'パスワード変更', edit_user_registration_path, class:"nav-link" %>
              </li>
-             <li class="list-inline">
-              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+             <li class="nav-item">
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete ,class:"nav-link"%>
              </li>
-             <li class="list-inline">
-               <%= link_to '記事を書く', new_article_path %>
+             <li class="nav-item">
+               <%= link_to '記事を書く', new_article_path, class:"nav-link" %>
              </li>
            <% else %>
-             <li class="list-inline">
-               <%= link_to 'サインアップ', new_user_registration_path %>
+             <li class="nav-item">
+               <%= link_to 'サインアップ', new_user_registration_path, class: "nav-link"%>
              </li>
-             <li class="list-inline">
-               <%= link_to 'ログイン', new_user_session_path %>
+             <li class="nav-item">
+               <%= link_to 'ログイン', new_user_session_path, class: "nav-link" %>
              </li>
            <% end %>
          </ul>
@@ -43,7 +48,6 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
-    <button class="btn btn-primary">登録</button>
    </div>
   </body>
 </html>

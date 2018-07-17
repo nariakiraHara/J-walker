@@ -4,7 +4,6 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    binding.pry
     @article = current_user.articles.build(article_params)
     if @article.save
       redirect_to profile_path(current_user)
