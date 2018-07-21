@@ -1,0 +1,7 @@
+<%= form_for(@article) do |f|  %>
+  <%= f.label :title %></br>
+  <%= f.text_field :title %></br>
+  <%= f.label :content %></br>
+  <%= f.text_area :content, "v-model":"contentText"%></br>
+  <%= f.submit "投稿する", name: "commit", class: "btn btn-success" %>
+<% end %>

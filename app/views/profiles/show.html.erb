@@ -1,33 +1,48 @@
 <h1><%= current_user.name %></h1>
 
-<%= link_to '編集', edit_profile_path(@user) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <%= link_to '編集', edit_profile_path(@user) %>
 
-<h2>mail address</h2>
-<p><%= current_user.email %></p>
+      <h2>mail address</h2>
+      <p><%= current_user.email %></p>
 
-<% if current_user.comment.empty? %>
-  <p>not setting</p>
-<% else %>
-  <p><%= current_user.comment %></p>
-<% end %>
+      <% if current_user.comment.empty? %>
+        <p>not setting</p>
+      <% else %>
+        <p><%= current_user.comment %></p>
+      <% end %>
 
-<h2>birthday</h2>
-<% if @user.birthday.nil? %>
-  <p>not setting</p>
-<% else %>
-  <p><%= @user.birthday %></p>
-<% end %>
+      <h2>birthday</h2>
+      <% if @user.birthday.nil? %>
+        <p>not setting</p>
+      <% else %>
+        <p><%= @user.birthday %></p>
+      <% end %>
 
-<h2>出身地</h2>
-<% if @user.prefecture_id.nil? %>
-  <p>not setting</p>
-<% else %>
-  <p><%= JpPrefecture::Prefecture.find(@user.prefecture_id).name %></p>
-<% end %>
+      <h2>出身地</h2>
+      <% if @user.prefecture_id.nil? %>
+        <p>not setting</p>
+      <% else %>
+        <p><%= JpPrefecture::Prefecture.find(@user.prefecture_id).name %></p>
+      <% end %>
 
-<h2>行ってみたいところ！</h2>
-<% if @user.dream_place.nil? %>
-  <p>not setting</p>
-<% else %>
-  <p><%= @user.dream_place %></p>
-<% end %>
+      <h2>行ってみたいところ！</h2>
+      <% if @user.dream_place.nil? %>
+        <p>not setting</p>
+      <% else %>
+        <p><%= @user.dream_place %></p>
+      <% end %>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <% if @user.articles.any? %>
+      <h3>投稿した記事：<%= @user.articles.count %></h3>
+      <ol class="articles">
+        <%= render @articles %>
+      </ol>
+      <%= will_paginate @articles %>
+    <% end %>
+  </div>
+</div>
