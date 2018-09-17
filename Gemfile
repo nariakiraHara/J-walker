@@ -17,9 +17,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'webpacker', "3.2.1"
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
-
+gem 'activesupport'
 #pry-rails
-
+# material icons
+gem 'material_icons'
 #
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -34,7 +35,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-
+gem 'carrierwave'
+gem 'rmagick', '~> 2.16.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -3,11 +3,29 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
+
+      <% if is_current_user?(@user.id) %>
+        <% if @user_images.any? %>
+          <% @user_images.each do |user_image| %>
+            <%= link_to image_tag(user_image.image.to_s, class:'rounded-circle', width:'200', height:'200'), profile_images_path(current_user) %>
+          <% end %>
+        <% else %>
+          <%= link_to image_tag('/default_account.png', class:'rounded-circle', width:'200', height:'200' ), profile_images_path(current_user) %>
+        <% end %>
+        <div class='display-image-field'>
+          <%= link_to 'javascript:void(0);', '@click':"open_field" do %>
+            <i class="material-icons" id="edit-image-icon">add</i>
+          <% end %>
+          <div class="add_image" style="display: none;">
+            <% @new_user_image = current_user.user_images.build %>
+             <%= form_for(@new_user_image, url: profile_images_path(@user), html: {method:"post"}, remote:true) do |f|  %>
+              <%= f.file_field :image %></br>
+              <%= f.submit "Save",name:"commit", class: "btn btn-success"%>
+             <% end %>
+          </div>
+        </div>
       <%= link_to '編集', edit_profile_path(@user) %>
-
-      <h2>mail address</h2>
-      <p><%= current_user.email %></p>
-
+      <% end %>
       <% if current_user.comment.empty? %>
         <p>not setting</p>
       <% else %>
@@ -15,21 +33,21 @@
       <% end %>
 
       <h2>birthday</h2>
-      <% if @user.birthday.nil? %>
+      <% if @user.birthday.present? %>
         <p>not setting</p>
       <% else %>
         <p><%= @user.birthday %></p>
       <% end %>
 
       <h2>出身地</h2>
-      <% if @user.prefecture_id.nil? %>
+      <% if @user.prefecture_id.present? %>
         <p>not setting</p>
       <% else %>
         <p><%= JpPrefecture::Prefecture.find(@user.prefecture_id).name %></p>
       <% end %>
 
       <h2>行ってみたいところ！</h2>
-      <% if @user.dream_place.nil? %>
+      <% if @user.dream_place.present? %>
         <p>not setting</p>
       <% else %>
         <p><%= @user.dream_place %></p>
@@ -46,3 +64,5 @@
     <% end %>
   </div>
 </div>
+
+<%= javascript_pack_tag 'profile_vue' %>

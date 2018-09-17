@@ -3528,6 +3528,10 @@ match-at@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/match-at/-/match-at-0.1.1.tgz#25d040d291777704d5e6556bbb79230ec2de0540"
 
+material-design-icons@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/material-design-icons/-/material-design-icons-3.0.1.tgz#9a71c48747218ebca51e51a66da682038cdcb7bf"
+
 math-expression-evaluator@^1.2.14:
   version "1.2.17"
   resolved "https://registry.yarnpkg.com/math-expression-evaluator/-/math-expression-evaluator-1.2.17.tgz#de819fdbcd84dccd8fae59c6aeb79615b9d266ac"
@@ -6169,6 +6173,14 @@ vue-markdown@^2.2.4:
     markdown-it-sup "^1.0.0"
     markdown-it-task-lists "^2.0.1"
     markdown-it-toc-and-anchor "^4.1.2"
+
+vue-material-icon@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/vue-material-icon/-/vue-material-icon-1.0.1.tgz#00f92bdaf654391450e8880fb0da8683ff09988e"
+
+vue-material@^1.0.0-beta-10.2:
+  version "1.0.0-beta-10.2"
+  resolved "https://registry.yarnpkg.com/vue-material/-/vue-material-1.0.0-beta-10.2.tgz#c3effea97e0c5a0c696b0051d5ef9c6e6cf2a5ed"
 
 vue-style-loader@^4.1.0:
   version "4.1.0"

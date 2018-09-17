@@ -14,3 +14,4 @@ import 'bootstrap'
 
 window.jQuery = jQuery
 window.$ = jQuery
+
