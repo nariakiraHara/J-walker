@@ -1,0 +1,11 @@
+<div class="article-rendering">
+  <h1>記事の編集</h1>
+  <div class="input">
+    <%= render 'form' %>
+  </div>
+  <div class="preview">
+    <vue-markdown :source="contentText"></vue-markdown>
+  </div>
+</div>
+
+<%= javascript_pack_tag 'content_vue' %>

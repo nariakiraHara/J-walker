@@ -1,0 +1,7 @@
+<%= form_for(@article) do |f|  %>
+  <%= f.label :title, class: "sr-only" %></br>
+  <%= f.text_field :title, class: 'form-control', :placeholder => "タイトル：10文字以内で入力してください。" %>
+  <%= f.label :content, class: "sr-only" %></br>
+  <%= f.text_area :content, class: "form-control form-control-extend", size:"30x15", "v-model":"contentText" %></br>
+  <%= f.submit "投稿する", name: "commit", class: "btn btn-success" %>
+<% end %>

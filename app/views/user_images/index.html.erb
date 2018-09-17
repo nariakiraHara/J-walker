@@ -1,0 +1,9 @@
+<% if @user_images.any?%>
+  <% @user_images.each do |user_image| %>
+    <%= image_tag(user_image.image.to_s, class:'rounded-circle', width:'400', height:'400') %>
+  <% end %>
+<% else %>
+  <%= link_to image_tag('/default_account.png', class:'rounded-circle' )%>
+<% end %>
+<% if is_current_user?(@user.id) %>
+<% end %>

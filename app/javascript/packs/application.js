@@ -8,3 +8,10 @@
 // layout file, like app/views/layouts/application.html.erb
 
 console.log('Hello World from Webpacker')
+import jQuery from 'jquery'
+import '../stylesheets/main.sass'
+import 'bootstrap'
+
+window.jQuery = jQuery
+window.$ = jQuery
+
