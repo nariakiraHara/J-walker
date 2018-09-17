@@ -5,26 +5,59 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'%>
+    <%= javascript_pack_tag 'application' %>
+    <%= javascript_include_tag 'application'%>
   </head>
 
   <body>
-   <header>
-        <nav>
-         <% if user_signed_in? %>
-           <strong><%= link_to current_user.name, profile_path(current_user) %></strong>
-           <%= link_to 'パスワード変更', edit_user_registration_path %>
-           <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-          <%= link_to '記事を書く', new_article_path %>
-         <% else %>
-          <%= link_to 'サインアップ', new_user_registration_path %>
-          <%= link_to 'ログイン', new_user_session_path %>
-         <% end %>
-        </nav>
-    </header>
+    <header>
+     <nav class="navbar navbar-expand-lg navbar-light">
+       <%= link_to root_path, class:"navbar-brand" do %>
+         <i class="material-icons", style="display: block">home</i>home
+       <% end %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+       <div class="collapse navbar-collapse" id="navbarNav">
+         <ul class="navbar-nav">
+           <% if user_signed_in? %>
+             <li class="nav-item">
+               <%= link_to edit_user_registration_path, class:"nav-link" do %>
+                 <i class="material-icons" style="display: block">vpn_key</i>password
+               <% end %>
+             </li>
+             <li class="nav-item">
+               <%= link_to image_tag('/logout.png'), destroy_user_session_path, method: :delete ,class:"nav-link" %>
+             </li>
+             <li class="nav-item">
+               <%= link_to new_article_path, class:"nav-link" do %>
+                 <i class="material-icons" style="display: block">create</i>記事を書く
+               <% end %>
+             </li>
+             <li class="nav-item active active-image">
+               <% @user_image = UserImage.where(user_id:current_user.id).first %>
+               <%= link_to image_tag(@user_image.image.to_s, class: 'rounded-circle', width:'40', height:'40'), profile_path(current_user) %>
+             </li>
+           <% else %>
+             <li class="nav-item">
+               <%= link_to new_user_registration_path, class: "nav-link" do %>
+                 <i class="material-icons" style="display: block">how_to_reg</i>sign-up
+               <% end %>
+             </li>
+             <li class="nav-item">
+               <%= link_to 'ログイン', new_user_session_path, class: "nav-link" %>
+             </li>
+           <% end %>
+         </ul>
+       </div>
+     </nav>
+   </header>
+   <div class="container">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+   </div>
   </body>
 </html>

@@ -1,7 +1,10 @@
-<h1>Articles#new</h1>
+<div class="article-rendering">
+  <div class="input">
+    <%=render 'form' %>
+  </div>
+  <div class="preview">
+    <vue-markdown :source="contentText"></vue-markdown>
+  </div>
+</div>
 
-<%= form_for(@article, :url => {:controller => :articles, :action => :create}) do |f|  %>
-  <%= f.label :content %>
-  <%= f.text_area :content %>
-  <%= f.submit "Save", name: "commit" %>
-<% end %>
+<%= javascript_pack_tag 'content_vue' %>
